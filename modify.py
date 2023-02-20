@@ -1,6 +1,8 @@
 import sys, getopt
 import random
 import os
+import numpy as np
+import pandas as pd
 
 def main(argv):
     input_file = ''
@@ -33,22 +35,19 @@ def main(argv):
     print ('Number of letters is', number_of_letters)
     print ('Output file is', output_file)
 
-    sequences = modify(input_file, number_of_letters, number_of_sequences)
-    file_name = "modified_sequences/" + output_file
+    first_part = output_file.split('.')[0]
+    sequences, e_distances = modify(input_file, number_of_letters, number_of_sequences)
+    e_distances = np.asarray(e_distances)
 
+    distances_file_name = "modified_sequences/" + "distances_" + first_part + ".csv"
+    os.makedirs(os.path.dirname(distances_file_name), exist_ok=True)
+    pd.DataFrame(e_distances).to_csv(distances_file_name)
     
+    file_name = "modified_sequences/" + output_file
     os.makedirs(os.path.dirname(file_name), exist_ok=True)
     with open(file_name, "w") as f:
         f.write(sequences)
     f.close()
-
-def split(input_file):
-    sdsd = []
-    with open(input_file, 'r') as f:
-        total = f.read()
-        sdsd = total.split('\n>')
-    f.close()
-    print(sdsd[0])
 
 
 # number_of_letters specify how many letters to replace
@@ -63,6 +62,8 @@ def modify(input_file, number_of_letters, number_of_sequences):
     letters = ['A', 'C', 'G', 'T']*number_of_letters
     indices = [i for i, _ in enumerate(sequence)]
     sequences = ""
+    seqs = [([], sequence)]
+    result = [[0]*(number_of_sequences+1) for _ in range(number_of_sequences+1)]
 
     for i in range(number_of_sequences):
         count = 0
@@ -77,11 +78,30 @@ def modify(input_file, number_of_letters, number_of_sequences):
                 lst[i] = c
 
         count = number_of_letters - count
-        new_sequence = ">Number of dissimilarities is " + str(count) + "\n" + ''.join(lst) + '\n'
+        seq = ''.join(lst)
+        seqs.append((sam, seq))
+        new_sequence = ">Number of dissimilarities from original is " + str(count) + "\n" + seq + '\n'
 
         sequences += new_sequence
 
-    return sequences
+    for i, (ids1, s1) in enumerate(seqs):
+        for j, (ids2, s2) in enumerate(seqs):
+            ids = set(ids1)
+            if i != j:
+                ids.update(ids2)
+                d = get_evolutionary_distance(s1, s2, ids)
+                result[i][j] = d
+                result[j][i] = d
+
+    return sequences, result
+
+# get the evolutionary distance between two equally long sequences
+def get_evolutionary_distance(s1, s2, ids):
+    count = 0
+    for i in ids:
+        if s1[i] != s2[i]:
+            count += 1
+    return count
 
 if __name__ == "__main__":
     main(sys.argv[1:])
