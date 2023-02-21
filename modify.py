@@ -53,7 +53,7 @@ def main(argv):
 # number_of_letters specify how many letters to replace
 def modify(input_file, number_of_letters, number_of_sequences): 
     with open(input_file, 'r') as f:
-        _ = next(f) # skips the description of the genome
+        description = next(f) # skips the description of the genome
         sequence = f.read() # parses sequence
         sequence = sequence.split('\n>')[0] # takes the first genome in a multifasta file
     f.close()
@@ -61,11 +61,11 @@ def modify(input_file, number_of_letters, number_of_sequences):
     sequence = sequence.strip()
     letters = ['A', 'C', 'G', 'T']*number_of_letters
     indices = [i for i, _ in enumerate(sequence)]
-    sequences = ""
+    sequences = ">Original \n" + sequence + "\n"
     seqs = [([], sequence)]
     result = [[0]*(number_of_sequences+1) for _ in range(number_of_sequences+1)]
 
-    for i in range(number_of_sequences):
+    for _ in range(number_of_sequences):
         count = 0
         new_letters = iter(random.sample(letters, number_of_letters))
         sam = random.sample(indices, number_of_letters)
@@ -80,12 +80,15 @@ def modify(input_file, number_of_letters, number_of_sequences):
         count = number_of_letters - count
         seq = ''.join(lst)
         seqs.append((sam, seq))
-        new_sequence = ">Number of dissimilarities from original is " + str(count) + "\n" + seq + '\n'
+        new_sequence = ">Number of dissimilarities from original is " + str(count) + "\n" + seq + "\n"
 
         sequences += new_sequence
 
+    passed = set()
     for i, (ids1, s1) in enumerate(seqs):
         for j, (ids2, s2) in enumerate(seqs):
+            if (j,i) in passed:
+                continue
             ids = set(ids1)
             if i != j:
                 ids.update(ids2)
@@ -93,6 +96,7 @@ def modify(input_file, number_of_letters, number_of_sequences):
                 result[i][j] = d
                 result[j][i] = d
 
+            passed.add((i,j))
     return sequences, result
 
 # get the evolutionary distance between two equally long sequences
