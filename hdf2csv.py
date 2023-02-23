@@ -7,4 +7,4 @@ hf_path = sys.argv[1]
 
 df = pd.DataFrame(np.array(h5py.File(hf_path)['distances']['dvstar-0']))
 
-df.to_csv(sys.stdout, index=False)
+df.to_csv(sys.stdout)
