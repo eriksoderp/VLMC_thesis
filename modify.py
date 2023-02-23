@@ -53,7 +53,7 @@ def main(argv):
 # number_of_letters specify how many letters to replace
 def modify(input_file, number_of_letters, number_of_sequences): 
     with open(input_file, 'r') as f:
-        description = next(f) # skips the description of the genome
+        _ = next(f) # skips the description of the genome
         sequence = f.read() # parses sequence
         sequence = sequence.split('\n>')[0] # takes the first genome in a multifasta file
     f.close()
@@ -66,9 +66,10 @@ def modify(input_file, number_of_letters, number_of_sequences):
     result = [[0]*(number_of_sequences+1) for _ in range(number_of_sequences+1)]
 
     for _ in range(number_of_sequences):
+        ran = random.randrange(number_of_letters)
         count = 0
-        new_letters = iter(random.sample(letters, number_of_letters))
-        sam = random.sample(indices, number_of_letters)
+        new_letters = iter(random.sample(letters, ran))
+        sam = random.sample(indices, ran)
         lst = list(sequence)
         for i in sam:
             c = next(new_letters)
@@ -77,7 +78,7 @@ def modify(input_file, number_of_letters, number_of_sequences):
             else:
                 lst[i] = c
 
-        count = number_of_letters - count
+        count = ran - count
         seq = ''.join(lst)
         seqs.append((sam, seq))
         new_sequence = ">Number of dissimilarities from original is " + str(count) + "\n" + seq + "\n"
@@ -86,6 +87,7 @@ def modify(input_file, number_of_letters, number_of_sequences):
 
     passed = set()
     for i, (ids1, s1) in enumerate(seqs):
+        if i % 100 == 0: print(i)
         for j, (ids2, s2) in enumerate(seqs):
             if (j,i) in passed:
                 continue
