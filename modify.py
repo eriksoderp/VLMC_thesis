@@ -8,7 +8,7 @@ def main(argv):
     input_file = ''
     output_file = ''
     number_of_sequences = 1
-    number_of_letters = 10
+    number_of_letters = 0.1
     arg_help = 'modify.py -i <inputfile> -s <number_of_sequences> -l <number_of_letters> -o <outputfile>'
     try:
         opts, args = getopt.getopt(argv, "hi:s:l:o:", ["ifile=","number_of_letters=","ofile="])
@@ -25,14 +25,14 @@ def main(argv):
         elif opt in ("-s", "--number_of_sequences"):
             number_of_sequences = int(arg)
         elif opt in("-l", "--number_of_letters"):
-            number_of_letters = int(arg)
+            number_of_letters = float(arg)
         elif opt in ("-o", "--ofile"):
             output_file = arg
         
 
     print ('Input file is', input_file)
     print ('Number of sequences is', number_of_sequences)
-    print ('Number of letters is', number_of_letters)
+    print ('Percent of letters to convert is', number_of_letters)
     print ('Output file is', output_file)
 
     first_part = output_file.split('.')[0]
@@ -53,21 +53,21 @@ def main(argv):
 # number_of_letters specify how many letters to replace
 def modify(input_file, number_of_letters, number_of_sequences): 
     with open(input_file, 'r') as f:
-        _ = next(f) # skips the description of the genome
+        description = next(f) # skips the description of the genome
         sequence = f.read() # parses sequence
         sequence = sequence.split('\n>')[0] # takes the first genome in a multifasta file
     f.close()
 
     sequence = sequence.strip()
-    letters = ['A', 'C', 'G', 'T']*number_of_letters
+    len_seq = int(number_of_letters*len(sequence))
+    letters = ['A', 'C', 'G', 'T']*len_seq
     indices = [i for i, _ in enumerate(sequence)]
     sequences = ">Original \n" + sequence + "\n"
-    seqs = [([], sequence)]
-    result = [[0]*(number_of_sequences+1) for _ in range(number_of_sequences+1)]
+    result = [0]*(number_of_sequences+1)
 
-    for _ in range(number_of_sequences):
-        ran = random.randrange(number_of_letters)
+    for s in range(number_of_sequences):
         count = 0
+        ran = random.randrange(len_seq)
         new_letters = iter(random.sample(letters, ran))
         sam = random.sample(indices, ran)
         lst = list(sequence)
@@ -80,34 +80,12 @@ def modify(input_file, number_of_letters, number_of_sequences):
 
         count = ran - count
         seq = ''.join(lst)
-        seqs.append((sam, seq))
         new_sequence = ">Number of dissimilarities from original is " + str(count) + "\n" + seq + "\n"
 
         sequences += new_sequence
+        result[s+1] = count / len(sequence)
 
-    passed = set()
-    for i, (ids1, s1) in enumerate(seqs):
-        if i % 100 == 0: print(i)
-        for j, (ids2, s2) in enumerate(seqs):
-            if (j,i) in passed:
-                continue
-            ids = set(ids1)
-            if i != j:
-                ids.update(ids2)
-                d = get_evolutionary_distance(s1, s2, ids)
-                result[i][j] = d
-                result[j][i] = d
-
-            passed.add((i,j))
     return sequences, result
-
-# get the evolutionary distance between two equally long sequences
-def get_evolutionary_distance(s1, s2, ids):
-    count = 0
-    for i in ids:
-        if s1[i] != s2[i]:
-            count += 1
-    return count
 
 if __name__ == "__main__":
     main(sys.argv[1:])
