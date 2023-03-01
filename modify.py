@@ -3,6 +3,7 @@ import random
 import os
 import numpy as np
 import pandas as pd
+from tqdm import tqdm
 
 def main(argv):
     input_file = ''
@@ -65,7 +66,7 @@ def modify(input_file, number_of_letters, number_of_sequences):
     sequences = ">Original \n" + sequence + "\n"
     result = [0]*(number_of_sequences+1)
 
-    for s in range(number_of_sequences):
+    for s in tqdm(range(number_of_sequences)):
         count = 0
         ran = random.randrange(len_seq)
         new_letters = iter(random.sample(letters, ran))
