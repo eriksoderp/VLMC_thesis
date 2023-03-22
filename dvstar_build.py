@@ -7,6 +7,7 @@ import pandas as pd
 import os 
 from enum import Enum
 import numpy as np  
+import multiprocessing
 
 def dvstar_build(genome_path: Path, out_path: Path, threshold: float, min_count: int, max_depth: int):
     first = True
@@ -33,6 +34,7 @@ def dvstar_build(genome_path: Path, out_path: Path, threshold: float, min_count:
             "-o",
             opath
         )"""
+        
         args = (
             "./build/dvstar",
             "--mode",
@@ -50,7 +52,7 @@ def dvstar_build(genome_path: Path, out_path: Path, threshold: float, min_count:
         )
         subprocess.run(args, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-    compare_trees(out_path)
+    compare_trees(out_path, threshold, min_count, max_depth)
 
 def get_bintree_name(genome_path: str, threshold: float, min_count: int, max_depth: int):
     return os.path.splitext(genome_path)[0] + f"_{threshold}_{min_count}_{max_depth}.bintree"
@@ -76,15 +78,21 @@ def compare_trees(out_path, threshold, min_count, max_depth):
     print(distances)
 
 
+
+
 def build(argv):
     genome_path = Path(argv[0])
     out_path = Path(argv[1])
+    number_of_cores = int(argv[2])
     out_path.mkdir(exist_ok=True)
 
-    combinations = [(threshold, min_count, max_depth) for threshold in (0, 0.5, 1.2, 3.9075) for min_count in (2, 10, 100) for max_depth in (9, 12)]
+    combinations = [(genome_path, out_path,) + (threshold, min_count, max_depth) for threshold in (0, 0.5, 1.2, 3.9075) for min_count in (2, 10, 100) for max_depth in (9, 12)]
 
-    for (threshold, min_count, max_depth) in combinations:
-        dvstar_build(genome_path, out_path, threshold, min_count, max_depth)
+    pool_obj = multiprocessing.Pool(number_of_cores)
+
+    pool_obj.starmap(dvstar_build, combinations)
+    #for (threshold, min_count, max_depth) in combinations:
+    #    dvstar_build(genome_path, out_path, threshold, min_count, max_depth)
 
     return
 
