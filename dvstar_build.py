@@ -10,17 +10,15 @@ import numpy as np
 import multiprocessing
 
 def dvstar_build(genome_path: Path, out_path: Path, threshold: float, min_count: int, max_depth: int):
-    first = True
     opath = ""
     out_path = out_path / Path(str(out_path) + f"_{threshold}_{min_count}_{max_depth}")
     out_path.mkdir(exist_ok=True)
     for genome in os.listdir(genome_path):
-        print(genome)
-        if first:
-            opath = out_path / get_bintree_name("original", threshold, min_count, max_depth)
-            first = False
-        else:
-            opath = out_path / get_bintree_name(genome, threshold, min_count, max_depth)
+        #if first:
+        #    opath = out_path / get_bintree_name("original", threshold, min_count, max_depth)
+        #    first = False
+        #else:
+        opath = out_path / get_bintree_name(genome, threshold, min_count, max_depth)
 
         """args = (
             "./build/src/pst-batch-training",
@@ -52,7 +50,7 @@ def dvstar_build(genome_path: Path, out_path: Path, threshold: float, min_count:
         )
         subprocess.run(args, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-    compare_trees(out_path, threshold, min_count, max_depth)
+    #compare_trees(out_path, threshold, min_count, max_depth)
 
 def get_bintree_name(genome_path: str, threshold: float, min_count: int, max_depth: int):
     return os.path.splitext(genome_path)[0] + f"_{threshold}_{min_count}_{max_depth}.bintree"
@@ -68,13 +66,13 @@ def compare_trees(out_path, threshold, min_count, max_depth):
             "--mode",
             "dissimilarity",
             "--in-path",
-            original,
+            out_path / original,
             "--to-path",
-            tree
+            out_path / tree
         )
-        
-        distances.append(check_output(args))
-        
+        proc = subprocess.Popen(args, stdout=subprocess.PIPE)
+        distances.append(float(proc.stdout.readlines()[-1]))
+
     print(distances)
 
 
@@ -88,9 +86,12 @@ def build(argv):
 
     combinations = [(genome_path, out_path,) + (threshold, min_count, max_depth) for threshold in (0, 0.5, 1.2, 3.9075) for min_count in (2, 10, 100) for max_depth in (9, 12)]
 
-    pool_obj = multiprocessing.Pool(number_of_cores)
+    for g, o, t, m, d in combinations:
+        o = o / Path(str(o) + f"_{t}_{m}_{d}")
+        compare_trees(o, t, m, d)
+    #pool_obj = multiprocessing.Pool(number_of_cores)
 
-    pool_obj.starmap(dvstar_build, combinations)
+    #pool_obj.starmap(dvstar_build, combinations)
     #for (threshold, min_count, max_depth) in combinations:
     #    dvstar_build(genome_path, out_path, threshold, min_count, max_depth)
 
