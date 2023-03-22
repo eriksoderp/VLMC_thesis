@@ -1,4 +1,6 @@
+
 import subprocess
+from subprocess import check_output
 import sys
 from pathlib import Path
 import pandas as pd 
@@ -48,8 +50,31 @@ def dvstar_build(genome_path: Path, out_path: Path, threshold: float, min_count:
         )
         subprocess.run(args, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
+    compare_trees(out_path)
+
 def get_bintree_name(genome_path: str, threshold: float, min_count: int, max_depth: int):
     return os.path.splitext(genome_path)[0] + f"_{threshold}_{min_count}_{max_depth}.bintree"
+
+def compare_trees(out_path, threshold, min_count, max_depth):
+    trees = os.listdir(out_path)
+    original = trees[0]
+    distances = []
+
+    for tree in trees[1:]:
+        args = (
+            "./build/dvstar",
+            "--mode",
+            "dissimilarity",
+            "--in-path",
+            original,
+            "--to-path",
+            tree
+        )
+        
+        distances.append(check_output(args))
+        
+    print(distances)
+
 
 def build(argv):
     genome_path = Path(argv[0])
