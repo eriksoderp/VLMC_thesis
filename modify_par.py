@@ -108,8 +108,8 @@ def mod_par(sequence, len_seq, letters, indices, s):
             count += 1
 
     seq = ''.join(lst)
-    new_sequence = ">Number of dissimilarities from original is " + str(count) + "\n" + seq + "\n"
     ratio = count / len(sequence)
+    new_sequence = ">Number of dissimilarities from original is " + str(count) + "/ratio is " + str(ratio) + "\n" + seq + "\n"
 
     return new_sequence, ratio, s
 
