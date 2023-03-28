@@ -1,0 +1,5 @@
+Best Hyperparameters: {'activation': 'relu', 'hidden_layer_sizes': (500,), 'max_iter': 1000, 'solver': 'adam'}
+Best Score: 0.8373693850634293
+Score: 0.8874820231918621
+Spearman R: SignificanceResult(statistic=0.9647369360560063, pvalue=0.0)
+Mean squared error: 0.00046053175487900384
