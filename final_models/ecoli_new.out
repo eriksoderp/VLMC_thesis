@@ -2,7 +2,7 @@
 Best Parameters: {'activation': 'relu', 'early_stopping': True, 'hidden_layer_sizes': (500, 500, 500), 'solver': 'adam', 'validation_fraction': 0.2}
 
  MLPRegressor
-Score    : 0.9939
+Score    : 0.9945
 Spearman : 0.9981
 RMSE      : 0.0002
 
