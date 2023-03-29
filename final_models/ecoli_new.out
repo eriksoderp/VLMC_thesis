@@ -1,0 +1,13 @@
+['VLMC dist', 'Original VLMC size', 'Mod VLMC size', 'threshold', 'min_count', 'max_depth']
+Best Parameters: {'activation': 'relu', 'early_stopping': True, 'hidden_layer_sizes': (500, 500, 500), 'solver': 'adam', 'validation_fraction': 0.2}
+
+ MLPRegressor
+Score    : 0.9939
+Spearman : 0.9981
+RMSE      : 0.0002
+
+ Linear regressor
+Score    : 0.7302
+Spearman : 0.8832
+RMSE      : 0.0011 
+
