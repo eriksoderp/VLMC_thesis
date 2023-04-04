@@ -1,21 +1,13 @@
-Best Hyperparameters: {'activation': 'relu', 'early_stopping': True, 'hidden_layer_sizes': (1000, 1000, 500), 'max_iter': 200, 'solver': 'adam'}
-Best Score: 0.971302116450785
-Overall Results: {'mean_fit_time': array([3231.67329121, 7830.04042046, 4922.5138581 ]), 'std_fit_time': array([ 601.42511849, 6403.36949916, 4106.798382  ]), 'mean_score_time': array([3.17036288, 4.00669868, 4.28099771]), 'std_score_time': array([0.13942352, 1.34115831, 3.95562332]), 'param_activation': masked_array(data=['relu', 'relu', 'relu'],
-             mask=[False, False, False],
-       fill_value='?',
-            dtype=object), 'param_early_stopping': masked_array(data=[True, True, True],
-             mask=[False, False, False],
-       fill_value='?',
-            dtype=object), 'param_hidden_layer_sizes': masked_array(data=[(2000, 1000, 1000), (2000, 1500), (1000, 1000, 500)],
-             mask=[False, False, False],
-       fill_value='?',
-            dtype=object), 'param_max_iter': masked_array(data=[200, 200, 200],
-             mask=[False, False, False],
-       fill_value='?',
-            dtype=object), 'param_solver': masked_array(data=['adam', 'adam', 'adam'],
-             mask=[False, False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'activation': 'relu', 'early_stopping': True, 'hidden_layer_sizes': (2000, 1000, 1000), 'max_iter': 200, 'solver': 'adam'}, {'activation': 'relu', 'early_stopping': True, 'hidden_layer_sizes': (2000, 1500), 'max_iter': 200, 'solver': 'adam'}, {'activation': 'relu', 'early_stopping': True, 'hidden_layer_sizes': (1000, 1000, 500), 'max_iter': 200, 'solver': 'adam'}], 'split0_test_score': array([0.95919479, 0.97781152, 0.96715786]), 'split1_test_score': array([0.93950279, 0.97478203, 0.97388392]), 'split2_test_score': array([0.94567705, 0.95314561, 0.97370212]), 'split3_test_score': array([0.95294522, 0.96237049, 0.97720963]), 'split4_test_score': array([0.96275836, 0.9634906 , 0.96323213]), 'split5_test_score': array([0.92995352, 0.96430657, 0.97442962]), 'split6_test_score': array([0.92415142, 0.97862391, 0.9582821 ]), 'split7_test_score': array([0.95778918, 0.9788845 , 0.96771523]), 'split8_test_score': array([0.95871071, 0.95845617, 0.97896147]), 'split9_test_score': array([0.97396217, 0.94595046, 0.97844708]), 'mean_test_score': array([0.95046452, 0.96578218, 0.97130212]), 'std_test_score': array([0.0147087 , 0.01089955, 0.00656893]), 'rank_test_score': array([3, 2, 1], dtype=int32)}
-Score: 0.9788528683626583
-Spearman R: SignificanceResult(statistic=0.9889672384973034, pvalue=0.0)
-Mean squared error: 0.00010551213506715222
+['VLMC dist', 'Original VLMC size', 'Mod VLMC size', 'threshold', 'min_count', 'max_depth', 'Genome']
+Best Parameters: {'activation': 'relu', 'early_stopping': True, 'hidden_layer_sizes': (400, 400, 400), 'solver': 'adam', 'validation_fraction': 0.2}
+
+ MLPRegressor
+Score    : 0.9793
+Spearman : 0.995
+RMSE      : 0.0102
+
+ Linear regressor
+Score    : 0.7742
+Spearman : 0.8982
+RMSE      : 0.0336 
+
