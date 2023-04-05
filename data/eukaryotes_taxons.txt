@@ -7,18 +7,18 @@ Flammulina velutipes
 Pleurotus cornucopiae
 Hypsizygus marmoreus
 Hericium erinaceus
-Sparassis latifolia
+Sparassis crispa
 Ganoderma boninense
 Trametes hirsuta
 Pyrrhoderma noxium
-Ceratobasidium sp. AG-Ba
-Exobasidium cylindrosporum
-Malassezia restricta
+Ceratobasidium cornigerum
+Exobasidium
+Malassezia globosa
 Sporisorium reilianum f. sp. reilianum
 Sporisorium reilianum f. sp. zeae
 Sporisorium scitamineum
 Ustilago maydis
-Puccinia triticina
+Melampsora medusae
 Aspergillus luchuensis
 Aspergillus oryzae
 Aspergillus flavus
@@ -29,12 +29,12 @@ Penicillium oxalicum
 Penicillium polonicum
 Penicillium chrysogenum
 Talaromyces pinophilus
-Talaromyces rugulosus
-Exophiala lecanii-corni
+Talaromyces wortmannii
+Exophiala dermatitidis
 Blumeria graminis
 Botrytis cinerea
 Trichothecium roseum
-Calonectria ilicicola
+Calonectria leucothoes
 Fusarium graminearum
 Fusarium culmorum
 Fusarium pseudograminearum
@@ -43,37 +43,37 @@ Fusarium poae
 Fusarium verticillioides
 Fusarium circinatum
 Fusarium fujikuroi
-Trichoderma cornu-damae
-Drechmeria coniospora
-Purpureocillium takamizusanense
+Trichoderma harzianum
+Drechmeria balanoides
+Purpureocillium lilacinum
 Ustilaginoidea virens
 Epichloe typhina
 Epichloe festucae
 Pochonia chlamydosporia
-Podospora comata
+Podospora
 Thermothelomyces thermophilus
 Thermothielavioides terrestris
 Neurospora crassa
 Pyricularia oryzae
 Pyricularia grisea
 Pyricularia pennisetigena
-Chrysoporthe sp. MAF-2017a
+Chrysoporthe cubensis
 Valsa mali var. mali
 Valsa mali var. pyri
 Colletotrichum higginsianum
-Colletotrichum lupini
+Colletotrichum acutatum
 Neofusicoccum parvum
 Alternaria solani
-Alternaria longipes
+Alternaria arborescens
 Pyrenophora teres
-Stagonosporopsis rhizophila
+Ascochyta rabiei
 Zymoseptoria tritici
 Fulvia fulva
 Cercospora beticola
 Cercospora sojina
 Venturia effusa
 Peltaster fructicola
-Morchella crassipes
+Morchella rufobrunnea
 Cyberlindnera fabianii
 Saccharomycopsis malanga
 Sugiyamaella lignohabitans
@@ -117,17 +117,17 @@ Zygotorulaspora mrakii
 Zygosaccharomyces rouxii
 Yarrowia lipolytica
 [Candida] hispaniensis
-Pneumocystis wakefieldiae
+Pneumocystis carinii
 Schizosaccharomyces pombe
-Lichtheimia ramosa
-Hormiphora californensis
+Phycomyces blakesleeanus
+Mnemiopsis leidyi
 Lytechinus variegatus
 Stichopus chloronotus
-Marthasterias glacialis
+Leptasterias muelleri
 Branchiostoma lanceolatum
 Branchiostoma floridae
 Amblyraja radiata
-Pristis pectinata
+Pristis clavata
 Carcharodon carcharias
 Scyliorhinus canicula
 Lepisosteus oculatus
@@ -143,7 +143,7 @@ Salvelinus namaycush
 Salmo salar
 Thymallus thymallus
 Coregonus clupeaformis
-Lampris incognitus
+Lampris guttatus
 Chelmon rostratus
 Lutjanus erythropterus
 Sparus aurata
@@ -180,7 +180,7 @@ Gasterosteus aculeatus
 Apeltes quadracus
 Pholis gunnellus
 Pseudochaenichthys georgianus
-Cottoperca gobio
+Cottoperca
 Epinephelus fuscoguttatus
 Cromileptes altivelis
 Epinephelus lanceolatus
@@ -225,7 +225,7 @@ Xiphophorus couchianus
 Xiphophorus maculatus
 Gambusia affinis
 Poecilia reticulata
-Anableps anableps
+Anableps
 Nematolebias whitei
 Kryptolebias marmoratus
 Nothobranchius furzeri
@@ -263,7 +263,7 @@ Astyanax mexicanus
 Hepsetus odoe
 Pygocentrus nattereri
 Megaleporinus macrocephalus
-Triplophysa tibetana
+Nemacheilus masyai
 Beaufortia kweichowensis
 Myxocyprinus asiaticus
 Onychostoma macrolepis
@@ -294,8 +294,8 @@ Megalops atlanticus
 Megalops cyprinoides
 Anguilla rostrata
 Anguilla anguilla
-Ilyophis sp. 2 JC-2022
-Albula goreensis
+Synaphobranchus kaupii
+Albula vulpes
 Heterotis niloticus
 Scleropages formosus
 Acipenser ruthenus
@@ -461,22 +461,22 @@ Podarcis muralis
 Lacerta agilis
 Zootoca vivipara carniolica
 Zootoca vivipara louislantzi
-Hemiprocne comata
+Hemiprocne
 Apus apus
 Archilochus colubris
 Calypte anna
 Nyctibius grandis
 Caprimulgus europaeus
 Theristicus caerulescens
-Ciconia maguari
+Ciconia ciconia
 Porphyrio hochstetteri
 Alca torda
 Sterna hirundo
 Pluvialis apricaria
 Streptopelia turtur
-Phoenicopterus ruber
+Phoenicopterus
 Colaptes auratus
-Pogoniulus pusillus
+Pogoniulus
 Bucorvus abyssinicus
 Trogon surrucura
 Accipiter gentilis
@@ -495,7 +495,7 @@ Prinia bairdii bairdii
 Hirundo rustica
 Parus major
 Poecile atricapillus
-Certhia americana
+Certhia brachydactyla
 Catharus ustulatus
 Ficedula albicollis
 Erithacus rubecula
@@ -514,7 +514,7 @@ Molothrus ater
 Agelaius phoeniceus
 Fringilla coelebs
 Passer domesticus
-Lichenostomus cassidix
+Ptiloprora plumbea
 Malurus cyaneus
 Chiroxiphia lanceolata
 Falco rusticolus
@@ -530,19 +530,19 @@ Meleagris gallopavo
 Gallus gallus
 Numida meleagris
 Rafetus swinhoei
-Trachemys scripta
+Trachemys dorbigni
 Chrysemys picta
 Mauremys mutica
-Gopherus evgoodei
+Gopherus agassizii
 Chelonia mydas
 Dermochelys coriacea
-Protopterus annectens
+Protopterus
 Neoceratodus forsteri
 Petromyzon marinus
 Lethenteron reissneri
 Entosphenus tridentatus
-Ciona intestinalis
-Aplidium turbinatum
+Ciona savignyi
+Diplosoma listerianum
 Carcinoscorpius rotundicauda
 Tachypleus gigas
 Tachypleus tridentatus
@@ -551,30 +551,30 @@ Rhipicephalus microplus
 Rhipicephalus sanguineus
 Hyalomma asiaticum
 Haemaphysalis longicornis
-Sarcoptes scabiei
-Argiope bruennichi
-Meta bourneti
-Dolomedes plantarius
+Falculifer rostratus
+Argiope
+Meta menardi
+Dolomedes
 Tomocerus qinae
 Yoshiicerus persimilis
 Sinella curviseta
-Leuctra nigra
-Nemoura dubitans
-Schistocerca piceifrons
-Anoplius nigerrimus
+Leuctra
+Protonemura meyeri
+Schistocerca gregaria
+Eragenia abdominalis
 Monomorium pharaonis
 Solenopsis invicta
-Tetramorium bicarinatum
-Cataglyphis hispanica
-Formica selysi
+Tetramorium caespitum
+Cataglyphis
+Formica moki
 Ooceraea biroi
-Ectemnius lituratus
-Sphecodes monilicornis
+Oxybelus abdominalis
+Sphecodes minor
 Andrena dorsata
 Andrena minutula
 Macropis europaea
-Anthidium xuezhongi
-Nomada fabriciana
+Anthidium
+Nomada maculata
 Apis mellifera iberiensis
 Apis mellifera mellifera
 Apis mellifera sinisxinyuan
@@ -587,27 +587,27 @@ Apis mellifera scutellata
 Apis mellifera lamarckii
 Apis mellifera jemenitica
 Bombus breviceps
-Bombus pratorum
-Bombus ignitus
-Bombus pascuorum
-Telenomus remus
-Belonocnema kinseyi
-Aphelinus certus
+Pyrobombus
+Bombus
+Thoracobombus
+Telenomus sp. AD-2014
+Andricus lignicolus
+Aphelinus abdominalis
 Nasonia vitripennis
-Cotesia glomerata
-Tenthredo notha
-Diprion similis
+Spinaria fuscipennis
+Tenthredo mesomela
+Diprion
 Pogonus chalceus
 Leistus spinibarbis
-Pterostichus madidus
-Philonthus cognatus
-Anthonomus grandis
+Pterostichus niger
+Hydrophilidae sp. SLE0101
+Anthonomus
 Apoderus coryli
 Tribolium castaneum
 Tribolium confusum
-Pyrochroa serraticornis
-Malachius bipustulatus
-Podabrus alpinus
+Pyrochroa coccinea
+Melyridae sp. INB003
+Lycocerus sp. INB155
 Melolontha melolontha
 Chrysopa pallens
 Chrysoperla carnea
@@ -630,69 +630,69 @@ Drosophila subobscura
 Drosophila miranda
 Drosophila pseudoobscura
 Drosophila athabasca
-Delia radicum
+Delia
 Lucilia cuprina
-Bellardia pandia
-Protocalliphora azurea
-Sarcophaga rosellei
-Thecocarcelia acutangulata
+Calliphora vicina
+Phormia regina
+Sarcophaga bullata
+Exorista sorbillans
 Bactrocera tryoni
 Teleopsis dalmanni
-Sicus ferrugineus
-Cheilosia vulpina
-Eupeodes latifasciatus
-Machimus atricapillus
+Physocephala sagittaria
+Cheilosia longula
+Episyrphus balteatus
+Laphria grossa
 Hermetia illucens
-Sitodiplosis mosellana
+Mayetiola destructor
 Polypedilum vanderplanki
 Propsilocerus akamusi
 Culex quinquefasciatus
 Aedes aegypti
 Anopheles arabiensis
 Anopheles gambiae
-Nephrotoma flavescens
-Carposina sasakii
+Dicranomyia hawaiiensis
+Carposina fernaldana
 Spodoptera litura
 Spodoptera frugiperda
 Spodoptera exigua
 Mesoligia furuncula
-Apamea monoglypha
+Apamea ophiogramma
 Hydraecia micacea
-Noctua fimbriata
-Mythimna ferrago
+Feltia jaculifera
+Mythimna
 Helicoverpa zea
-Amphipyra tragopoginis
+Amphipyra
 Hypena proboscidalis
 Orgyia antiqua
 Lymantria monacha
 Catocala fraxini
 Euplexia lucipara
 Trichoplusia ni
-Acronicta aceris
+Polygrammate hebraeicum
 Pheosia gnoma
 Biston betularia
-Ectropis grisescens
-Macaria notata
+Ectropis
+Macaria
 Hylaea fasciaria
 Ennomos fuscantarius
 Erannis defoliaria
 Agriopis marginaria
 Agriopis aurantiaria
 Idaea aversata
-Operophtera brumata
-Eulithis prunata
+Operophtera rectipostmediana
+Eulithis
 Ecliptopera silaceata
-Dendrolimus kikuchii
+Dendrolimus pini
 Mimas tiliae
 Laothoe populi
 Manduca sexta
-Hemaris fuciformis
+Hemaris thysbe
 Bombyx mori
-Watsonalla binaria
+Tridrepana flava
 Thyatira batis
 Cnaphalocrocis medinalis
-Agriphila tristella
-Ephestia elutella
+Chilo suppressalis
+Plodia interpunctella
 Emmelina monodactyla
 Mellicta athalia
 Melitaea cinxia
@@ -719,7 +719,7 @@ Danaus plexippus
 Melinaea marsaeus
 Melinaea menophilus
 Glaucopsyche alexis
-Celastrina argiolus
+Celastrina
 Cyaniris semiargus
 Aricia agestis
 Lysandra coridon
@@ -737,17 +737,17 @@ Leptidea sinapis
 Pyrgus malvae
 Erynnis tages
 Thymelicus sylvestris
-Hesperia comma
-Ochlodes sylvanus
+Hesperia
+Ochlodes
 Iphiclides podalirius
 Papilio polyxenes coloro
 Papilio polyxenes asterius
 Papilio polyxenes americus
 Papilio polyxenes stabilis
 Bembecia ichneumoniformis
-Pandemis cinnamomeana
+Choristoneura fumiferana
 Grapholita molesta
-Phenacoccus solenopsis
+Aonidiella aurantii
 Metopolophium dirhodum
 Acyrthosiphon pisum
 Rhopalosiphum padi
@@ -755,39 +755,39 @@ Rhopalosiphum maidis
 Schizaphis graminum
 Schlechtendalia chinensis
 Hormaphis cornu
-Homalodisca vitripennis
-Callitettix versicolor
+Orosius orientalis
+Philaenus spumarius
 Laodelphax striatellus
 Sogatella furcifera
 Nilaparvata lugens
 Apolygus lucorum
-Pachypeltis micranthus
-Cyrtorhinus lividipennis
-Aelia acuminata
+Nesidiocoris tenuis
+Orthotylus flavosparsus
+Nezara viridula
 Pantala flavescens
-Ischnura elegans
-Platycnemis pennipes
+Ischnura
+Coeliccia cyanomelas
 Daphnia magna
 Daphnia pulex
-Caligus rogercresseyi
+Caligus
 Penaeus chinensis
 Penaeus monodon
 Macrobrachium nipponense
 Eriocheir sinensis
 Callinectes sapidus
-Portunus trituberculatus
+Portunus
 Paralithodes platypus
 Procambarus clarkii
 Ascaris suum
-Heterodera glycines
+Meloidogyne hapla
 Caenorhabditis briggsae
 Caenorhabditis elegans
-Pristionchus pacificus
-Trichinella murrelli
-Adineta vaga
-Metaphire vulgaris
-Paraescarpia echinospica
-Octopus sinensis
+Pristionchus
+Trichinella
+Philodina roseola
+Metaphire sieboldi
+Lamellibrachia barhami
+Octopus vulgaris
 Crassostrea hongkongensis
 Crassostrea ariakensis
 Crassostrea gigas
@@ -796,38 +796,38 @@ Pecten maximus
 Mytilus edulis
 Mytilus coruscus
 Anadara kagoshimensis
-Mercenaria mercenaria
+Mercenaria
 Ruditapes philippinarum
 Dreissena polymorpha
-Solen grandis
+Solen vaginoides
 Phorcus lineatus
 Steromphala cineraria
-Chrysomallon squamiferum
+Cyathermia naticoides
 Patella vulgata
 Patella pellucida
 Conus ventricosus
-Pomacea canaliculata
-Lineus longissimus
-Schmidtea mediterranea
+Pomacea
+Lineus
+Coelogynopora tenuis
 Taenia multiceps
 Schistosoma japonicum
 Acropora millepora
 Acropora hyacinthus
-Diadumene lineata
+Anemonia viridis
 Hydra vulgaris
 Ostreococcus tauri
 Chlamydomonas reinhardtii
-Dunaliella primolecta
-Ulva prolifera
-Chlorella sorokiniana
+Dunaliella
+Ulva
+Coccomyxa subellipsoidea
 Chloranthus sessilifolius
 Chimonanthus praecox
 Chimonanthus salicifolius
 Litsea cubeba
-Aristolochia contorta
+Aristolochia macrophylla
 Beta vulgaris
 Amaranthus cruentus
-Dianthus caryophyllus
+Dianthus seguieri
 Polygonum aviculare
 Fagopyrum tataricum
 Nyssa sinensis
@@ -839,7 +839,7 @@ Jacaranda mimosifolia
 Paulownia fortunei
 Scutellaria baicalensis
 Mentha longifolia
-Salvia splendens
+core Calosphace
 Buddleja alternifolia
 Olea europaea subsp. cuspidata
 Olea europaea subsp. guanchica
@@ -849,8 +849,8 @@ Olea europaea subsp. maroccana
 Osmanthus fragrans
 Fraxinus excelsior
 Fraxinus pennsylvanica
-Forsythia suspensa
-Primulina eburnea
+Forsythia
+Primulina tabacum
 Ipomoea trifida
 Ipomoea batatas
 Capsicum chinense
@@ -865,14 +865,14 @@ Solanum commersonii
 Lycium barbarum
 Nicotiana attenuata
 Echium plantagineum
-Gardenia jasminoides
+Gardenia volkensii
 Coffea eugenioides
 Coffea arabica
 Coffea canephora
 Coffea humblotiana
 Gynochthodes officinalis
-Leptodermis oblonga
-Lonicera japonica
+Leptodermis
+Lonicera sempervirens
 Daucus carota
 Apium graveolens
 Centella asiatica
@@ -886,11 +886,11 @@ Codonopsis lanceolata
 Platycodon grandiflorus
 Lactuca sativa
 Lactuca saligna
-Chrysanthemum lavandulifolium
+Chrysanthemum x morifolium
 Erigeron canadensis
 Mikania micrantha
 Helianthus annuus
-Cynara cardunculus
+Cynara humilis
 Camellia oleifera
 Vaccinium myrtillus
 Vaccinium darrowii
@@ -917,7 +917,7 @@ Brassica napus
 Brassica nigra
 Brassica carinata
 Arabis alpina
-Camelina sativa
+Camelina
 Arabidopsis suecica
 Arabidopsis thaliana
 Erysimum cheiranthoides
@@ -939,16 +939,16 @@ Gossypium mustelinum
 Gossypium stocksii
 Gossypium longicalyx
 Theobroma cacao
-Nephelium lappaceum
-Dimocarpus longan
+Nephelium
+Dimocarpus
 Litchi chinensis
-Acer yangbiense
+Acer negundo
 Xanthoceras sorbifolium
 Azadirachta indica
 Citrus sinensis
 Citrus maxima
 Citrus trifoliata
-Mangifera indica
+Mangifera foetida
 Eucalyptus globulus
 Eucalyptus grandis
 Eucalyptus cladocalyx
@@ -974,8 +974,8 @@ Salix arbutifolia
 Manihot esculenta
 Linum usitatissimum
 Ceriops tagal
-Bruguiera parviflora
-Kandelia obovata
+Bruguiera gymnorhiza
+Kandelia
 Tripterygium wilfordii
 Begonia masoniana
 Begonia loranthoides
@@ -989,7 +989,7 @@ Cucurbita pepo
 Luffa aegyptiaca
 Luffa acutangula
 Carpinus fangiana
-Corylus heterophylla
+Corylus avellana
 Morella rubra
 Juglans mandshurica
 Juglans regia
@@ -1001,11 +1001,11 @@ Quercus lobata
 Quercus aquifolioides
 Fagus sylvatica
 Cannabis sativa
-Boehmeria nivea
+Boehmeria
 Ficus carica
-Morus alba
+Morus rubra
 Ziziphus jujuba
-Rhamnella rubrinervis
+Maesopsis eminii
 Rosa chinensis
 Fragaria nilgerrensis
 Fragaria iinumae
@@ -1033,7 +1033,7 @@ Arachis duranensis
 Spatholobus suberectus
 Glycine max
 Glycine soja
-Glycine latifolia
+Glycine tomentella
 Amphicarpaea edgeworthii
 Vigna radiata
 Vigna angularis var. nipponensis
@@ -1043,23 +1043,23 @@ Phaseolus vulgaris
 Cicer arietinum
 Medicago truncatula
 Medicago ruthenica
-Pisum sativum
+Pisum fulvum
 Trifolium pratense
 Trifolium repens
-Sindora glabra
+Sindora bruggemanii
 Tetracentron sinense
 Telopea speciosissima
 Macadamia tetraphylla
 Macadamia integrifolia
-Akebia trifoliata
+Akebia
 Aquilegia kansuensis
-Coptis chinensis
+Coptis
 Papaver somniferum
 Musa balbisiana
-Ensete glaucum
+Ensete ventricosum
 Zingiber officinale
 Typha latifolia
-Ananas comosus
+Brocchinia acuminata
 Oryza punctata
 Oryza glaberrima
 Oryza barthii
@@ -1107,11 +1107,11 @@ Sorghum bicolor
 Coix lacryma-jobi
 Coix aquatica
 Microstegium vimineum
-Zea mays
+Zea diploperennis
 Paspalum notatum
 Eragrostis curvula
 Pharus latifolius
-Carex littledalei
+Carex hostiana
 Areca catechu
 Elaeis guineensis
 Phoenix dactylifera
@@ -1119,8 +1119,8 @@ Asparagus setaceus
 Asparagus officinalis
 Allium cepa
 Allium sativum
-Hemerocallis citrina
-Papilionanthe hookeriana x Papilionanthe teres
+Hemerocallis fulva
+Phalaenopsis equestris
 Cymbidium sinense
 Dendrobium nobile
 Dendrobium officinale
@@ -1131,15 +1131,15 @@ Acanthochlamys bracteata
 Dioscorea cayenensis
 Dioscorea alata
 Colocasia esculenta
-Amorphophallus konjac
-Spirodela intermedia
+Amorphophallus paeoniifolius
+Lemna gibba
 Nymphaea colorata
 Taxus chinensis
 Taxus wallichiana
 Sequoiadendron giganteum
 Cycas panzhihuaensis
 Ceratopteris richardii
-Syntrichia caninervis
+Cinclidotus fontinaloides
 Ceratodon purpureus
 Physcomitrium patens
-Sphagnum magellanicum
+Sphagnum palustre
