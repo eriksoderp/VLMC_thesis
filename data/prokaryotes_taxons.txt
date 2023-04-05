@@ -65,7 +65,7 @@ Methylobacterium radiotolerans
 Methylobacterium aquaticum
 Methylobacterium nodulans
 Methylorubrum populi
-Bosea vaviloviae
+Bosea thiooxidans
 Hyphomicrobium nitrativorans
 Hyphomicrobium denitrificans
 Rhodomicrobium vannielii
@@ -96,7 +96,7 @@ Brevundimonas vesicularis
 Asticcacaulis excentricus
 Brevundimonas subvibrioides
 Brevundimonas naejangsanensis
-Phenylobacterium zucineum
+Phenylobacterium immobile
 Caulobacter segnis
 Caulobacter henricii
 Parvularcula bermudensis
@@ -130,7 +130,7 @@ Paracoccus yeei
 Paracoccus aminophilus
 Paracoccus denitrificans
 Rhodobacter capsulatus
-Thioclava nitratireducens
+Thioclava pacifica
 Rhodovulum sulfidophilum
 Hirschia baltica
 Hyphomonas neptunium
@@ -147,7 +147,7 @@ Sphingomonas sanxanigenens
 Sphingomonas koreensis
 Novosphingobium aromaticivorans
 Novosphingobium resinovorum
-Sphingorhabdus sp. SMR4y
+Sphingorhabdus wooponensis
 Sphingopyxis alaskensis
 Sphingopyxis macrogoltabida
 Sphingopyxis granuli
@@ -196,7 +196,7 @@ Ehrlichia muris
 Ehrlichia chaffeensis
 Wolbachia endosymbiont of Onchocerca ochengi
 Magnetococcus marinus
-Rhizobacter gummiphilus
+Rhizobacter fulvus
 Hahella chejuensis
 Oleiphilus messinensis
 Marinobacter psychrophilus
@@ -210,7 +210,7 @@ Kushneria marisflavi
 Alcanivorax borkumensis
 Alcanivorax pacificus
 Alcanivorax dieselolei
-Gynuella sunshinyii
+Reinekea marinisedimentorum
 Marinomonas posidonica
 Marinomonas mediterranea
 Oleispira antarctica
@@ -221,7 +221,7 @@ Cellvibrio japonicus
 Saccharophagus degradans
 Teredinibacter turnerae
 Simiduia agarivorans
-Zhongshania aliphaticivorans
+Zhongshania antarctica
 Halioglobus japonicus
 Halioglobus pacificus
 Pseudomonas protegens
@@ -268,18 +268,18 @@ Morganella morganii subsp. morganii
 Morganella morganii subsp. sibonii
 Gilliamella apicola
 Frischella perrara
-Candidatus Arsenophonus lipoptenae
+Arsenophonus
 Photorhabdus thracensis
 Xenorhabdus nematophila
 Xenorhabdus doucetiae
 Xenorhabdus bovienii
 Xenorhabdus hominickii
 Proteus mirabilis
-Edwardsiella anguillarum
+Edwardsiella tarda
 Serratia rubidaea
 Rahnella aquatilis
 Yersinia ruckeri
-Sodalis praecaptivus
+Sodalis glossinidius
 Dickeya solani
 Pragia fontium
 Pectobacterium carotovorum
@@ -349,7 +349,7 @@ Alteromonas stellipolaris
 Alteromonas macleodii
 Glaciecola nitratireducens
 Paraglaciecola psychrophila
-Thalassotalea crassostreae
+Thalassotalea ganghwensis
 Colwellia psychrerythraea
 Agarivorans gilvus
 Idiomarina piscisalsi
@@ -362,7 +362,7 @@ Tatlockia micdadei
 Legionella oakridgensis
 Legionella fallonii
 Legionella longbeachae
-Coxiella endosymbiont of Amblyomma americanum
+Coxiella burnetii
 Halorhodospira halophila
 Alkalilimnicola ehrlichii
 Thioalkalivibrio sulfidiphilus
@@ -414,11 +414,11 @@ Sulfuricella denitrificans
 Nitrosomonas europaea
 Nitrosomonas eutropha
 Nitrosospira multiformis
-Dechloromonas aromatica
+Dechloromonas agitata
 Azospira oryzae
 Ferriphaselus amnicola
 Azoarcus olearius
-Aromatoleum aromaticum
+Aromatoleum tolulyticum
 Thauera chlorobenzoica
 Thauera humireducens
 Sulfuritalea hydrogenivorans
@@ -472,7 +472,7 @@ Rhodoferax saidenbachensis
 Rhodoferax antarcticus
 Rhodoferax ferrireducens
 Polaromonas naphthalenivorans
-Schlegelella brevitalea
+Schlegelella thermodepolymerans
 Oxalobacter formigenes
 Janthinobacterium agaricidamnosum
 Herminiimonas arsenicoxydans
@@ -550,7 +550,7 @@ Planctopirus limnophila
 Rubinisphaera brasiliensis
 Pirellula staleyi
 Phycisphaera mikurensis
-Fibrobacter succinogenes
+Fibrobacter
 Waddlia chondrophila
 Simkania negevensis
 Parachlamydia acanthamoebae
@@ -560,8 +560,6 @@ Chlamydia pecorum
 Chlamydia caviae
 Chlamydia psittaci
 Chlamydia felis
-'Blattabacterium
-Cryptocercus
 Nonlabens dokdonensis
 Nonlabens tegetincola
 Myroides profundi
@@ -575,16 +573,16 @@ Muricauda ruestringensis
 Muricauda lutaonensis
 Zobellia galactanivorans
 Robiginitalea biformata
-Arenibacter algicola
+Arenibacter latericius
 Cellulophaga algicola
 Cellulophaga baltica
 Cellulophaga lytica
 Dokdonia donghaensis
-Lutibacter profundi
+Lutibacter litoralis
 Polaribacter reichenbachii
 Tenacibaculum dicentrarchi
 Siansivirga zeaxanthinifaciens
-Lacinutrix venerupis
+Lacinutrix copepodicola
 Zunongwangia profunda
 Psychroflexus torquis
 Gramella flava
@@ -644,7 +642,7 @@ Melioribacter roseus
 Prosthecochloris aestuarii
 Chlorobium phaeobacteroides
 Chlorobium limicola
-Chlorobaculum limnaeum
+Chlorobaculum tepidum
 Pelodictyon luteolum
 Chlorobium phaeovibrioides
 Chloroherpeton thalassium
@@ -660,7 +658,7 @@ Cyanobacterium aponinum
 Dactylococcopsis salina
 Moorena producens
 Leptolyngbya boryana
-Prochlorococcus marinus
+Prochlorococcus
 Cyanobium gracile
 Synechococcus elongatus
 Acaryochloris marina
@@ -727,10 +725,10 @@ Acholeplasma oculi
 Paracholeplasma brassicae
 Virgibacillus halodenitrificans
 Virgibacillus necropolis
-Lentibacillus amyloliquefaciens
+Lentibacillus salicampi
 Oceanobacillus iheyensis
 Terribacillus goriensis
-Salimicrobium jeotgali
+Salimicrobium album
 Halobacillus mangrovi
 Halobacillus halophilus
 Amphibacillus xylanus
@@ -752,7 +750,7 @@ Bacillus amyloliquefaciens
 Bacillus licheniformis
 Bacillus atrophaeus
 Bacillus pumilus
-Jeotgalibacillus malaysiensis
+Jeotgalibacillus marinus
 Anoxybacillus amylolyticus
 Anoxybacillus gonensis
 Geobacillus thermoleovorans
@@ -782,7 +780,7 @@ Staphylococcus lutrae
 Staphylococcus aureus
 Staphylococcus haemolyticus
 Staphylococcus lugdunensis
-Macrococcus canis
+Macrococcus caseolyticus
 Paenibacillus larvae
 Paenibacillus naphthalenovorans
 Paenibacillus mucilaginosus
@@ -795,7 +793,7 @@ Paenibacillus borealis
 Kyrpidia tusciae
 Brevibacillus laterosporus
 Brevibacillus brevis
-Novibacillus thermophilus
+Thermoactinomyces intermedius
 Cytobacillus oceanisediminis
 Bacillus infantis
 Bacillus methanolicus
@@ -888,7 +886,7 @@ Lactococcus piscium
 Thermoanaerobacter wiegelii
 Thermoanaerobacter kivui
 Thermoanaerobacter italicus
-Caldanaerobacter subterraneus
+Caldanaerobacter uzonensis
 Ammonifex degensii
 Thermosediminibacter oceani
 Clostridium tetani
@@ -941,7 +939,7 @@ Ethanoligenens harbinense
 Flavonifractor plautii
 Intestinimonas butyriciproducens
 Oscillibacter valericigenes
-Gottschalkia acidurici
+Gottschalkia purinilytica
 Peptoclostridium acidaminophilum
 Clostridium formicaceticum
 Clostridium aceticum
@@ -1083,7 +1081,7 @@ Mycolicibacterium fortuitum subsp. fortuitum
 Mycolicibacterium fortuitum subsp. acetamidolyticum
 Mycolicibacterium neoaurum
 Mycobacteroides chelonae
-Frankia inefficax
+Frankia
 Thermobispora bispora
 Streptosporangium roseum
 Thermomonospora curvata
@@ -1127,7 +1125,7 @@ Prauserella marina
 Saccharopolyspora erythraea
 Pseudonocardia dioxanivorans
 Actinosynnema mirum
-Lentzea guizhouensis
+Lentzea albidocapillata
 Saccharothrix espanaensis
 Kutzneria albida
 Actinoalloteichus hymeniacidonis
@@ -1170,7 +1168,7 @@ Dermacoccus nishinomiyaensis
 Luteipulveratus mongoliensis
 Kytococcus sedentarius
 Intrasporangium calvum
-Agromyces aureus
+Agromyces ramosus
 Curtobacterium pusillum
 Rathayibacter tritici
 Rathayibacter toxicus
@@ -1320,7 +1318,7 @@ Geoglobus ahangari
 Geoglobus acetivorans
 Archaeoglobus veneficus
 Picrophilus torridus
-Ferroplasma acidarmanus
+Ferroplasma
 Thermoplasma acidophilum
 Thermoplasma volcanium
 Aciduliprofundum boonei
@@ -1343,7 +1341,7 @@ Pyrococcus horikoshii
 Pyrococcus furiosus
 Pyrococcus yayanosii
 Thermococcus litoralis
-Vulcanisaeta moutnovskia
+Vulcanisaeta distributa
 Caldivirga maquilingensis
 Acidilobus saccharovorans
 Caldisphaera lagunensis
@@ -1357,3 +1355,27 @@ Saccharolobus solfataricus
 Metallosphaera sedula
 Metallosphaera cuprina
 Hyperthermus butylicus
+Cryptocercus sp. BL120
+Cryptocercus garciai
+Cryptocercus darwini
+Cryptocercus punctulatus
+Cryptocercus wrighti
+Cryptocercus clevelandi
+Cryptocercus sp. BL119
+Cryptocercus relictus
+Cryptocercus kyebangensis
+Cryptocercus meridianus
+Cryptocercus primarius
+Cryptocercus matilei
+Cryptocercus shangmengensis
+Cryptocercus zagunaoensis
+Cryptocercus convexus
+Cryptocercus pingwuensis
+Cryptocercus habaensis
+Cryptocercus arcuatus
+Cryptocercus wuxiensis
+Cryptocercus shennongjiaensis
+Cryptocercus hirtus
+Cryptocercus ningshanensis
+Cryptocercus neixiangensis
+Cryptocercus sp. SLB-2003
