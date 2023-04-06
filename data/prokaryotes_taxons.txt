@@ -619,7 +619,6 @@ Solitalea canadensis
 Pedobacter heparinus
 Pedobacter steynii
 Pedobacter cryoconitis
-Pseudopedobacter saltans
 Haliscomenobacter hydrossis
 Niabella soli
 Chitinophaga pinensis
@@ -1355,27 +1354,3 @@ Saccharolobus solfataricus
 Metallosphaera sedula
 Metallosphaera cuprina
 Hyperthermus butylicus
-Cryptocercus sp. BL120
-Cryptocercus garciai
-Cryptocercus darwini
-Cryptocercus punctulatus
-Cryptocercus wrighti
-Cryptocercus clevelandi
-Cryptocercus sp. BL119
-Cryptocercus relictus
-Cryptocercus kyebangensis
-Cryptocercus meridianus
-Cryptocercus primarius
-Cryptocercus matilei
-Cryptocercus shangmengensis
-Cryptocercus zagunaoensis
-Cryptocercus convexus
-Cryptocercus pingwuensis
-Cryptocercus habaensis
-Cryptocercus arcuatus
-Cryptocercus wuxiensis
-Cryptocercus shennongjiaensis
-Cryptocercus hirtus
-Cryptocercus ningshanensis
-Cryptocercus neixiangensis
-Cryptocercus sp. SLB-2003
