@@ -1,6 +1,7 @@
 import re
 import requests
 from collections import defaultdict
+import random
 
 # Tar in en .nwk (från TimeTree) och spottar ut en .txt med alla taxons
 def extract_taxons(file_path, output_file):
@@ -17,12 +18,12 @@ def extract_taxons(file_path, output_file):
         for taxon in taxon_names:
             file.write(taxon + "\n")
 
-
-def fix_file():
+### Fixar TimeTree output
+def fix_file(file_path, fix_file_path):
     
-    with open('prokaryotes_taxons2.txt', 'r') as f:
+    with open(file_path, 'r') as f:
         eukaryotes = f.read().splitlines()
-    with open('fix.txt', 'r') as f:
+    with open(fix_file_path, 'r') as f:
         fixes = f.read().splitlines()
 
     fix_dict = {}
@@ -71,12 +72,13 @@ def get_kingdom(taxon):
         return kingdom
     return None
 
+
 def process_text_file(input_file, output_file):
     with open(input_file, 'r') as infile:
         taxons = infile.readlines()
 
+    kingdom_taxons = defaultdict(list)
     output = []
-    kingdom_count = defaultdict(int)
 
     for taxon in taxons:
         taxon = taxon.strip()
@@ -85,21 +87,27 @@ def process_text_file(input_file, output_file):
 
         kingdom = get_kingdom(taxon)
         if kingdom:
-            output.append(f"{taxon} (Kingdom: {kingdom})")
-            kingdom_count[kingdom] += 1
-        else:
-            output.append(f"{taxon} (Kingdom: Not found)")
+            kingdom_taxons[kingdom].append(taxon)
 
-    summary = [f"{kingdom}: {count}" for kingdom, count in kingdom_count.items()]
+    selected_taxons = []
+    kingdom_summary = {}
+
+    for kingdom, taxon_list in kingdom_taxons.items():
+        sample_size = min(500, len(taxon_list))
+        kingdom_summary[kingdom] = sample_size
+        selected_taxons.extend(random.sample(taxon_list, sample_size))
+
+    summary = [f"{kingdom}: {count}" for kingdom, count in kingdom_summary.items()]
 
     with open(output_file, 'w') as outfile:
-        outfile.write("Kingdom summary:\n")
+        outfile.write("Selected taxon summary:\n")
         outfile.write('\n'.join(summary))
-        outfile.write("\n\nTaxon list:\n")
-        outfile.write('\n'.join(output))
+        outfile.write("\n\nSelected taxon list:\n")
+        outfile.write('\n'.join(selected_taxons))
 
-input_file = "prokaryotes_taxons.txt"
-output_file = "prokaryotes_taxons_kingdoms.txt"
+
+input_file = "149_prokaryotes.txt"
+output_file = "149_prokaryotes_kingdoms.txt"
 process_text_file(input_file, output_file)
 
 #input_file = 'fix.txt'  # Replace with your input file name
