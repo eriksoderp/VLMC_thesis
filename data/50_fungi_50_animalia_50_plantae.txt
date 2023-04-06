@@ -17,7 +17,7 @@ Calonectria leucothoes
 Blumeria graminis
 Phycomyces blakesleeanus
 Flammulina velutipes
-Lachancea sp. PJ-2012a
+Kluyveromyces marxianus
 Kazachstania africana
 Metschnikowia reukaufii
 Saccharomycopsis malanga
@@ -27,7 +27,7 @@ Marasmius oreades
 Saccharomyces paradoxus
 Podospora
 Torulaspora delbrueckii
-Sporisorium reilianum f. sp. zeae
+Ceratobasidium cornigerum
 Ustilago maydis
 Neofusicoccum parvum
 Fusarium pseudograminearum
@@ -136,7 +136,7 @@ Salix suchowensis
 Solanum pennellii
 Capsicum chinense
 Lagenaria siceraria
-Olea europaea subsp. cuspidata
+Buddleja alternifolia
 Rhododendron ovatum
 Leersia perrieri
 Gossypium hirsutum
