@@ -25,14 +25,14 @@ def make_model(argv):
     data = pd.read_csv(csv_path)
 
     # Filter the rows
-    data = data[data['max_depth'] == 9]
+    data = data[data['max_depth'] == 12]
     data = data[data['min_count'].isin([100])]
     data = data[data['threshold'].isin([3.9075])]
 
     # Prepare the data
     # ["VLMC dist", "threshold", "min_count", "max_depth"]
     X = data[X_args].fillna(0)
-    y = data["Evolutionary dist"]
+    y = data["evo dist"]
 
     # Split the data into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -43,20 +43,28 @@ def make_model(argv):
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
 
+    parameter_space = {
+        'hidden_layer_sizes': [(500),(500,500),(500,500,500),(500,500,500,500),(500,500,500,500,500)],
+        'activation': ['relu'],
+        'solver': ['adam'],
+        #'alpha': [0.0001, 0.01],
+        #'learning_rate': ['constant','adaptive'],
+    }
+
     """parameter_space = {
-        'hidden_layer_sizes': [(200,200), (500,500), (1000,500), (2000,500), (500,500,500)],
+        'hidden_layer_sizes': [(200,200,200), (500,500,500), (1000,1000,1000)],
         'activation': ['tanh', 'relu'],
         'solver': ['sgd', 'adam'],
-        'alpha': [0.0001, 0.001, 0.01],
+        'alpha': [0.0001, 0.01],
         'learning_rate': ['constant','adaptive'],
-    }"""
-
+    }
+    
     parameter_space = {
-        'hidden_layer_sizes': [(500,)],
+        'hidden_layer_sizes': [(500,500,500)],
         'activation': ['relu'],
         'early_stopping': [True],
         'solver': ['adam']
-    }
+    }"""
 
     # Train and print MLP Regression
     mlp_regressor = MLPRegressor()
@@ -123,7 +131,7 @@ def make_model(argv):
         # 1:1 line
         ax1.axline((0,0), slope=1, color='firebrick', linestyle='dashed', linewidth=2)
                 # Axis limits
-        ax1.set(xlim=(0,0.008), ylim=(0,0.008))
+        #ax1.set(xlim=(0,0.008), ylim=(0,0.008))
         # Grid line
         ax1.set_axisbelow(True)
         ax1.grid(color='gray', linestyle='dashed', linewidth=0.5)
@@ -143,12 +151,13 @@ def make_model(argv):
         # 1:1 line
         ax2.axline((0,0), slope=1, color='firebrick', linestyle='dashed', linewidth=2)
                 # Axis limits
-        ax2.set(xlim=ax1.get_xlim(), ylim=ax1.get_ylim())
+        #ax2.set(xlim=ax1.get_xlim(), ylim=ax1.get_ylim())
         # Grid line
         ax2.set_axisbelow(True)
         ax2.grid(color='gray', linestyle='dashed', linewidth=0.5)
 
-        plt.show()
+        plt.savefig("fig.png"))
+        #plt.show()
 
 
 if __name__ == "__main__":
