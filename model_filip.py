@@ -10,6 +10,7 @@ import pickle
 import sys
 import matplotlib.pyplot as plt
 from matplotlib import rc, rcParams
+import numpy as np
 
 
 def make_model(argv):
@@ -25,7 +26,7 @@ def make_model(argv):
     data = pd.read_csv(csv_path)
 
     # Filter the rows
-    data = data[data['max_depth'] == 12]
+    data = data[data['max_depth'].isin([12])]
     data = data[data['min_count'].isin([100])]
     data = data[data['threshold'].isin([3.9075])]
 
@@ -33,7 +34,7 @@ def make_model(argv):
     # ["VLMC dist", "threshold", "min_count", "max_depth"]
     X = data[X_args].fillna(0)
     y = data["evo dist"]
-
+    
     # Split the data into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
@@ -42,9 +43,14 @@ def make_model(argv):
     #scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
+    
+    # Scale the target variable
+    scaler_y = MinMaxScaler()
+    y_train_scaled = scaler_y.fit_transform(y_train.values.reshape(-1, 1)).flatten()
+    y_test_scaled = scaler_y.transform(y_test.values.reshape(-1, 1)).flatten()
 
     parameter_space = {
-        'hidden_layer_sizes': [(500),(500,500),(500,500,500),(500,500,500,500),(500,500,500,500,500)],
+        'hidden_layer_sizes': [(1500,1250,1000,750),(2000,1500,1000)],
         'activation': ['relu'],
         'solver': ['adam'],
         #'alpha': [0.0001, 0.01],
@@ -57,13 +63,6 @@ def make_model(argv):
         'solver': ['sgd', 'adam'],
         'alpha': [0.0001, 0.01],
         'learning_rate': ['constant','adaptive'],
-    }
-    
-    parameter_space = {
-        'hidden_layer_sizes': [(500,500,500)],
-        'activation': ['relu'],
-        'early_stopping': [True],
-        'solver': ['adam']
     }"""
 
     # Train and print MLP Regression
@@ -75,28 +74,32 @@ def make_model(argv):
         cv=number_of_kfolds
     )
     
-    grid_search.fit(X_train_scaled, y_train)
+    grid_search.fit(X_train_scaled, y_train_scaled)
 
     best_mlp = MLPRegressor(**grid_search.best_params_)
-    best_mlp.fit(X_train_scaled, y_train)
+    best_mlp.fit(X_train_scaled, y_train_scaled)
 
-    y_pred_mlp = best_mlp.predict(X_test_scaled)
+    y_pred_scaled = best_mlp.predict(X_test_scaled)
+    y_pred_mlp = scaler_y.inverse_transform(y_pred_scaled.reshape(-1, 1)).flatten()
+
+
     print("Best Parameters:", grid_search.best_params_)
     print("\n")
 
     print("MLPRegressor")
-    print("Score    :", round(best_mlp.score(X_test_scaled, y_test),4))
+    print("Score    :", round(best_mlp.score(X_test_scaled, y_test_scaled),4))
     print("Spearman :", round(spearmanr(y_pred_mlp, y_test).correlation,4))
     print("RMSE      :", round(mean_squared_error(y_test, y_pred_mlp),4))
 
     # Train and print Linear Regression
     linear_regression = LinearRegression()
-    linear_regression.fit(X_train_scaled, y_train)
-    y_pred_lr = linear_regression.predict(X_test_scaled)
+    linear_regression.fit(X_train_scaled, y_train_scaled)
+    y_pred_lr_scaled = linear_regression.predict(X_test_scaled) 
+    y_pred_lr = scaler_y.inverse_transform(y_pred_lr_scaled.reshape(-1, 1)).flatten()
     
     print("\n")
     print("Linear regressor")
-    print("Score    :", round(linear_regression.score(X_test_scaled, y_test),4))
+    print("Score    :", round(linear_regression.score(X_test_scaled, y_test_scaled),4))
     print("Spearman :", round(spearmanr(y_pred_lr, y_test).correlation,4))
     print("RMSE      :", round(mean_squared_error(y_test, y_pred_lr),4), "\n")
 
