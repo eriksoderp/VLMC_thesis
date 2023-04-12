@@ -14,7 +14,7 @@ import re
 import itertools
 from Bio.SeqUtils import GC #gc_fraction
 
-def dvstar_build(genome_path: Path, out_path: Path, threshold: float, min_count: int, max_depth: int):
+def dvstar_build(number_of_cores, genome_path: Path, out_path: Path, threshold: float, min_count: int, max_depth: int):
     opath = ""
     out_path = out_path / Path(str(out_path) + f"_{threshold}_{min_count}_{max_depth}")
     out_path.mkdir(exist_ok=True)
@@ -59,14 +59,14 @@ def distances_par(out_path, tree1, tree2):
     proc = subprocess.Popen(args, stdout=subprocess.PIPE)
     return (tree1, tree2, float(proc.stdout.readlines()[-1]))
 
-def compare_trees(genome_path, out_path, threshold, min_count, max_depth):
+def compare_trees(number_of_cores, genome_path, out_path, threshold, min_count, max_depth):
     out_path = out_path / Path(str(out_path) + f"_{threshold}_{min_count}_{max_depth}")
     trees = os.listdir(out_path)
     sizes = []
     i = 0
 
     distance_args = [(out_path,) + (tree1, tree2) for tree1, tree2 in list(itertools.combinations(trees, 2))]
-    pool_obj3 = multiprocessing.Pool(32)
+    pool_obj3 = multiprocessing.Pool(number_of_cores)
     distances = pool_obj3.starmap(distances_par, distance_args)
     pool_obj3.close()
 
@@ -103,15 +103,15 @@ def build(argv):
     number_of_cores = int(argv[2])
     out_path.mkdir(exist_ok=True)
 
-    combinations = [(genome_path, out_path,) + (threshold, min_count, max_depth) for threshold in (0.5, 3.9075) for min_count in (25,) for max_depth in (9, 12)]
+    combinations = [(number_of_cores, genome_path, out_path,) + (threshold, min_count, max_depth) for threshold in (0.5, 3.9075) for min_count in (25,) for max_depth in (9, 12)]
 
     pool_obj1 = multiprocessing.Pool(number_of_cores)
     gcs = pool_obj1.starmap(dvstar_build, combinations)
     pool_obj1.close()
 
     dfs = []
-    for g, o, t, min_count, max_depth in combinations:
-        dfs.append(compare_trees(g, o, t, min_count, max_depth))
+    for c, g, o, t, min_count, max_depth in combinations:
+        dfs.append(compare_trees(c, g, o, t, min_count, max_depth))
 
     df = pd.concat(dfs, ignore_index=True)
 
