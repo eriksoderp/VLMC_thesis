@@ -19,7 +19,6 @@ def dvstar_build(genome_path: Path, out_path: Path, threshold: float, min_count:
     out_path = out_path / Path(str(out_path) + f"_{threshold}_{min_count}_{max_depth}")
     out_path.mkdir(exist_ok=True)
     
-    #desc = str(threshold) + '_' + str(min_count) + '_' + str(max_depth)
     for genome in os.listdir(genome_path):#tqdm(os.listdir(genome_path), desc=desc): #tqdm for development - useless on Bayes , #
         treename = get_bintree_name(genome, threshold, min_count, max_depth)
         opath = out_path / treename
@@ -63,7 +62,6 @@ def distances_par(out_path, tree1, tree2):
 def compare_trees(genome_path, out_path, threshold, min_count, max_depth):
     out_path = out_path / Path(str(out_path) + f"_{threshold}_{min_count}_{max_depth}")
     trees = os.listdir(out_path)
-    #distances = []
     sizes = []
     i = 0
 
@@ -71,18 +69,6 @@ def compare_trees(genome_path, out_path, threshold, min_count, max_depth):
     pool_obj3 = multiprocessing.Pool(32)
     distances = pool_obj3.starmap(distances_par, distance_args)
     pool_obj3.close()
-    #for tree1, tree2 in list(itertools.combinations(trees, 2)):
-    #    args = (
-    #        "./build/dvstar",
-    #        "--mode",
-    #        "dissimilarity",
-    #        "--in-path",
-    #        out_path / tree1,
-    #        "--to-path",
-    #        out_path / tree2
-    #    )
-    #    proc = subprocess.Popen(args, stdout=subprocess.PIPE)
-    #    distances.append((tree1, tree2, float(proc.stdout.readlines()[-1])))
 
     for tree in trees:
         args = (
@@ -119,13 +105,9 @@ def build(argv):
 
     combinations = [(genome_path, out_path,) + (threshold, min_count, max_depth) for threshold in (0.5, 3.9075) for min_count in (25,) for max_depth in (9, 12)]
 
-    #pool_obj1 = multiprocessing.Pool(number_of_cores)
-    #gcs = pool_obj1.starmap(dvstar_build, combinations)
-    #pool_obj1.close()
-    
-    #pool_obj = multiprocessing.Pool(4)
-    #dfs = pool_obj.starmap(compare_trees, combinations)
-    #pool_obj.close()
+    pool_obj1 = multiprocessing.Pool(number_of_cores)
+    gcs = pool_obj1.starmap(dvstar_build, combinations)
+    pool_obj1.close()
 
     dfs = []
     for g, o, t, min_count, max_depth in combinations:
