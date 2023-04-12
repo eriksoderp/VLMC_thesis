@@ -12,7 +12,7 @@ import tempfile
 from tqdm import tqdm
 import re
 import itertools
-from Bio.SeqUtils import gc_fraction
+from Bio.SeqUtils import GC #gc_fraction
 
 def dvstar_build(genome_path: Path, out_path: Path, threshold: float, min_count: int, max_depth: int):
     opath = ""
@@ -47,24 +47,42 @@ def dvstar_build(genome_path: Path, out_path: Path, threshold: float, min_count:
 def get_bintree_name(genome_path: str, threshold: float, min_count: int, max_depth: int):
     return os.path.splitext(genome_path)[0] + f"_{threshold}_{min_count}_{max_depth}.bintree"
 
+def distances_par(out_path, tree1, tree2):
+    args = (
+        "./build/dvstar",
+        "--mode",
+        "dissimilarity",
+        "--in-path",
+        out_path / tree1,
+        "--to-path",
+        out_path / tree2
+    )
+    proc = subprocess.Popen(args, stdout=subprocess.PIPE)
+    return (tree1, tree2, float(proc.stdout.readlines()[-1]))
+
 def compare_trees(genome_path, out_path, threshold, min_count, max_depth):
     out_path = out_path / Path(str(out_path) + f"_{threshold}_{min_count}_{max_depth}")
     trees = os.listdir(out_path)
-    distances = []
+    #distances = []
     sizes = []
+    i = 0
 
-    for tree1, tree2 in list(itertools.combinations(trees, 2)):
-        args = (
-            "./build/dvstar",
-            "--mode",
-            "dissimilarity",
-            "--in-path",
-            out_path / tree1,
-            "--to-path",
-            out_path / tree2
-        )
-        proc = subprocess.Popen(args, stdout=subprocess.PIPE)
-        distances.append((tree1, tree2, float(proc.stdout.readlines()[-1])))
+    distance_args = [(out_path,) + (tree1, tree2) for tree1, tree2 in list(itertools.combinations(trees, 2))]
+    pool_obj3 = multiprocessing.Pool(32)
+    distances = pool_obj3.starmap(distances_par, distance_args)
+    pool_obj3.close()
+    #for tree1, tree2 in list(itertools.combinations(trees, 2)):
+    #    args = (
+    #        "./build/dvstar",
+    #        "--mode",
+    #        "dissimilarity",
+    #        "--in-path",
+    #        out_path / tree1,
+    #        "--to-path",
+    #        out_path / tree2
+    #    )
+    #    proc = subprocess.Popen(args, stdout=subprocess.PIPE)
+    #    distances.append((tree1, tree2, float(proc.stdout.readlines()[-1])))
 
     for tree in trees:
         args = (
@@ -99,22 +117,26 @@ def build(argv):
     number_of_cores = int(argv[2])
     out_path.mkdir(exist_ok=True)
 
-    combinations = [(genome_path, out_path,) + (threshold, min_count, max_depth) for threshold in (0, 0.5, 3.9075) for min_count in (25, 100) for max_depth in (9, 12)]
+    combinations = [(genome_path, out_path,) + (threshold, min_count, max_depth) for threshold in (0.5, 3.9075) for min_count in (25,) for max_depth in (9, 12)]
 
-    pool_obj1 = multiprocessing.Pool(number_of_cores)
-    gcs = pool_obj1.starmap(dvstar_build, combinations)
-    pool_obj1.close()
+    #pool_obj1 = multiprocessing.Pool(number_of_cores)
+    #gcs = pool_obj1.starmap(dvstar_build, combinations)
+    #pool_obj1.close()
     
-    pool_obj = multiprocessing.Pool(number_of_cores)
-    dfs = pool_obj.starmap(compare_trees, combinations)
-    pool_obj.close()
+    #pool_obj = multiprocessing.Pool(4)
+    #dfs = pool_obj.starmap(compare_trees, combinations)
+    #pool_obj.close()
+
+    dfs = []
+    for g, o, t, min_count, max_depth in combinations:
+        dfs.append(compare_trees(g, o, t, min_count, max_depth))
 
     df = pd.concat(dfs, ignore_index=True)
 
     gcs = []
     for genome in os.listdir(genome_path):
         with open(genome_path / Path(genome), 'r') as f:
-           new_gc = gc_fraction(f.read())
+           new_gc = GC(f.read())
            gcs.append((genome[:-4], new_gc))
 
         f.close()
@@ -125,7 +147,14 @@ def build(argv):
         df.loc[df['Tree1'].str.contains(t), 'Tree1 GC ratio'] = gc
         df.loc[df['Tree2'].str.contains(t), 'Tree2 GC ratio'] = gc
 
-    df.to_csv('prokaryote_distances.csv')
+    for t, _ in gcs:
+        df.loc[df['Tree1'].str.contains(t), 'Tree1'] = t
+        df.loc[df['Tree2'].str.contains(t), 'Tree2'] = t
+
+    df['Tree1'] = df['Tree1'].str.replace('_', ' ')
+    df['Tree2'] = df['Tree2'].str.replace('_', ' ')
+
+    df.to_csv('eukaryote_distances_25.csv')
     return
 
 if __name__ == "__main__":
