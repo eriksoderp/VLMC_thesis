@@ -104,7 +104,7 @@ def make_model(argv):
         os.makedirs('./models')
 
     best_hidden_layer_sizes = grid_search.best_params_['hidden_layer_sizes']
-    data_file_name = f"./models/model_{str(dataset_name)}_layers_{str(best_hidden_layer_sizes)}_max-depth_{str(max_depth_values)}_min-count_{str(min_count_values)}_threshold_{str(threshold_values)}_cv_{str(number_of_kfolds)}.png"
+    data_file_name = f"./models/model_{str(dataset_name)}_layers_{str(best_hidden_layer_sizes)}_max-depth_{str(max_depth_values)}_min-count_{str(min_count_values)}_threshold_{str(threshold_values)}_cv_{str(number_of_kfolds)}.sav"
 
     pickle.dump(best_mlp, open(data_file_name, 'wb'))
 
