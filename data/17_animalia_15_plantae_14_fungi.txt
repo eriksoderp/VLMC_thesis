@@ -1,0 +1,52 @@
+Selected taxon summary:
+Plantae: 15
+Fungi: 14
+Animalia: 17
+
+Selected taxon list:
+Cicer arietinum
+Raphanus raphanistrum
+Coptis
+Taxus chinensis
+Acanthochlamys bracteata
+Triticum urartu
+Leptodermis
+Eucalyptus curtisii
+Eucalyptus grandis
+Oryza glaberrima
+Ceriops tagal
+Coix aquatica
+Gossypium arboreum
+Rhododendron williamsianum
+Aegilops speltoides
+Alternaria arborescens
+Candida orthopsilosis
+Lachancea fermentati
+Schizosaccharomyces pombe
+Aspergillus fumigatus
+Venturia effusa
+Zygosaccharomyces rouxii
+Thermothielavioides terrestris
+Talaromyces wortmannii
+Naumovozyma castellii
+Fusarium venenatum
+Cercospora beticola
+Botrytis cinerea
+Chrysoporthe cubensis
+Thunnus maccoyii
+Neogale vison
+Arvicanthis niloticus
+Delia
+Pangasianodon hypophthalmus
+Oryzias javanicus
+Thamnophis elegans
+Meles meles
+Peromyscus polionotus
+Equus quagga
+Toxotes chatareus
+Gorilla gorilla
+Petromyzon marinus
+Rhopalosiphum maidis
+Caprimulgus europaeus
+Anolis carolinensis
+Hypena proboscidalis
