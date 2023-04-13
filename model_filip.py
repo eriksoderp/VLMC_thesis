@@ -26,10 +26,10 @@ def make_model(argv):
     data = pd.read_csv(csv_path)
 
     ### ÄNDRA DESSA
-    max_depth_values = [9, 12]
-    min_count_values = [25, 100]
+    max_depth_values = [9,12]
+    min_count_values = [25,100]
     threshold_values = [3.9075]
-    hidden_layer_sizes_values = [(1,2),(3,3,3)]
+    hidden_layer_sizes_values = [(2,2,2),(4,4)]
     
     # Filter the rows
     data = data[data['max_depth'].isin(max_depth_values)]
@@ -43,9 +43,9 @@ def make_model(argv):
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     # Normalize the features using a Scaler
-    scaler = MinMaxScaler()
-    X_train_scaled = scaler.fit_transform(X_train)
-    X_test_scaled = scaler.transform(X_test)
+    scaler_x = MinMaxScaler()
+    X_train_scaled = scaler_x.fit_transform(X_train)
+    X_test_scaled = scaler_x.transform(X_test)
     
     # Scale the target variable
     scaler_y = MinMaxScaler()
@@ -104,9 +104,23 @@ def make_model(argv):
         os.makedirs('./models')
 
     best_hidden_layer_sizes = grid_search.best_params_['hidden_layer_sizes']
-    data_file_name = f"./models/model_{str(dataset_name)}_layers_{str(best_hidden_layer_sizes)}_max-depth_{str(max_depth_values)}_min-count_{str(min_count_values)}_threshold_{str(threshold_values)}_cv_{str(number_of_kfolds)}.sav"
+    hl_sizes_str = '-'.join(str(s) for s in best_hidden_layer_sizes)
+    max_depth_str = '-'.join(str(md) for md in max_depth_values)
+    min_count_str = '-'.join(str(mc) for mc in min_count_values)
+    threshold_str = '-'.join(f"{t:.4f}" for t in threshold_values)
 
+    data_file_name = f"./models/model_{dataset_name}_max_depth_{max_depth_str}_min_count_{min_count_str}_threshold_{threshold_str}_hidden_layer_sizes_{hl_sizes_str}_cv_{number_of_kfolds}.sav"
     pickle.dump(best_mlp, open(data_file_name, 'wb'))
+
+    # Save scalers
+    if not os.path.exists('./scalers'):
+        os.makedirs('./scalers')
+
+    scaler_x_file_name = f"./scalers/scaler_x_{dataset_name}_max_depth_{max_depth_str}_min_count_{min_count_str}_threshold_{threshold_str}_hidden_layer_sizes_{hl_sizes_str}_cv_{number_of_kfolds}.sav"
+    scaler_y_file_name = f"./scalers/scaler_y_{dataset_name}_max_depth_{max_depth_str}_min_count_{min_count_str}_threshold_{threshold_str}_hidden_layer_sizes_{hl_sizes_str}_cv_{number_of_kfolds}.sav"
+
+    pickle.dump(scaler_x, open(scaler_x_file_name, 'wb'))
+    pickle.dump(scaler_y, open(scaler_y_file_name, 'wb'))
 
     if(1):
 
@@ -164,7 +178,8 @@ def make_model(argv):
         if not os.path.exists('./plots'):
             os.makedirs('./plots')
 
-        plot_file_name = f"./plots/plot_{str(dataset_name)}_layers_{str(best_hidden_layer_sizes)}_max-depth_{str(max_depth_values)}_min-count_{str(min_count_values)}_threshold_{str(threshold_values)}_cv_{str(number_of_kfolds)}.png"
+        #plot_file_name = f"./plots/plot_{str(dataset_name)}_layers_{str(best_hidden_layer_sizes)}_max-depth_{str(max_depth_values)}_min-count_{str(min_count_values)}_threshold_{str(threshold_values)}_cv_{str(number_of_kfolds)}.png"
+        plot_file_name = f"./plots/plot_{dataset_name}_max_depth_{max_depth_str}_min_count_{min_count_str}_threshold_{threshold_str}_hidden_layer_sizes_{hl_sizes_str}_cv_{number_of_kfolds}.png"
         plt.savefig(plot_file_name)
         #plt.show()
 
