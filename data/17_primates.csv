@@ -1,4 +1,4 @@
-Unnamed: 0,Tree1,Tree2,VLMC dist,threshold,min_count,max_depth,Tree1 VLMC size,Tree2 VLMC size,Tree1 GC ratio,Tree2 GC ratio,distance
+Unnamed: 0,Tree1,Tree2,VLMC dist,threshold,min_count,max_depth,Tree1 VLMC size,Tree2 VLMC size,Tree1 GC ratio,Tree2 GC ratio,evo dist
 0,Galeopterus variegatus,Otolemur garnettii,0.133052,0.0,25,6,24576,24576,34.76677460178301,38.0133684512176,79.3647
 1,Galeopterus variegatus,Daubentonia madagascariensis,0.105968,0.0,25,6,24576,24576,34.76677460178301,39.39099517069151,79.3647
 2,Galeopterus variegatus,Eulemur macaco,0.115449,0.0,25,6,24576,24576,34.76677460178301,39.84544899667991,79.3647
