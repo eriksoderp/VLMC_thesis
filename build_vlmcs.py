@@ -12,14 +12,14 @@ import tempfile
 from tqdm import tqdm
 import re
 import itertools
-from Bio.SeqUtils import GC #gc_fraction
+from Bio.SeqUtils import GC
 
 def dvstar_build(number_of_cores, genome_path: Path, out_path: Path, threshold: float, min_count: int, max_depth: int):
     opath = ""
     out_path = out_path / Path(str(out_path) + f"_{threshold}_{min_count}_{max_depth}")
     out_path.mkdir(exist_ok=True)
     
-    for genome in os.listdir(genome_path):#tqdm(os.listdir(genome_path), desc=desc): #tqdm for development - useless on Bayes , #
+    for genome in os.listdir(genome_path):#tqdm(os.listdir(genome_path), desc=desc): #tqdm for development#
         treename = get_bintree_name(genome, threshold, min_count, max_depth)
         opath = out_path / treename
         
@@ -38,7 +38,7 @@ def dvstar_build(number_of_cores, genome_path: Path, out_path: Path, threshold: 
             "--out-path",
             opath,
             "--in-or-out-of-core",
-            "external"
+            "external" # external needed to not be extremely slow when parallelized
         )
         subprocess.run(args, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
@@ -103,12 +103,16 @@ def build(argv):
     number_of_cores = int(argv[2])
     out_path.mkdir(exist_ok=True)
 
+    # Specify the VLMC combinations to build VLMCs with based on the genomes in genome_path
     combinations = [(number_of_cores, genome_path, out_path,) + (threshold, min_count, max_depth) for threshold in (0.5, 3.9075) for min_count in (25,) for max_depth in (9, 12)]
 
+    # Split the building of VLMCs on number_of_cores
+    # Note that this parallelization only go as high as the number of combinations
     pool_obj1 = multiprocessing.Pool(number_of_cores)
     gcs = pool_obj1.starmap(dvstar_build, combinations)
     pool_obj1.close()
 
+    # Iteratively compute each specific folder's VLMCs' distances and VLMC sizes, where compare_trees is parallelized
     dfs = []
     for c, g, o, t, min_count, max_depth in combinations:
         dfs.append(compare_trees(c, g, o, t, min_count, max_depth))
@@ -123,12 +127,14 @@ def build(argv):
 
         f.close()
 
+    # Calculates the respective trees GC ratio
     df['Tree1 GC ratio'] = 0.0
     df['Tree2 GC ratio'] = 0.0
     for t, gc in gcs:
         df.loc[df['Tree1'].str.contains(t), 'Tree1 GC ratio'] = gc
         df.loc[df['Tree2'].str.contains(t), 'Tree2 GC ratio'] = gc
 
+    # Simplifies the name for the CSV-file
     for t, _ in gcs:
         df.loc[df['Tree1'].str.contains(t), 'Tree1'] = t
         df.loc[df['Tree2'].str.contains(t), 'Tree2'] = t
@@ -136,6 +142,7 @@ def build(argv):
     df['Tree1'] = df['Tree1'].str.replace('_', ' ')
     df['Tree2'] = df['Tree2'].str.replace('_', ' ')
 
+    # Specify CSV to write to when running script here or add it as an input argument
     df.to_csv('eukaryote_distances_25.csv')
     return
 
